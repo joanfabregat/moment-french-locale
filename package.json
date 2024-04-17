@@ -4,20 +4,22 @@
   "publishConfig": {
     "access": "public"
   },
-  "main": "./dist/moment-french-locale.js",
-  "module": "./dist/moment-french-locale.mjs",
+  "main": "dist/moment-french-locale.js",
+  "module": "dist/moment-french-locale.mjs",
+  "types": "dist/moment-french-locale.d.ts",
+  "source": "src/moment-french-locale.ts",
   "exports": {
-    ".": {
-      "import": "./dist/moment-french-locale.mjs",
-      "require": "./dist/moment-french-locale.js"
-    }
+    "types": "./dist/moment-french-locale.d.ts",
+    "import": "./dist/moment-french-locale.mjs",
+    "require": "./dist/moment-french-locale.js",
+    "module": "./dist/moment-french-locale.mjs",
+    "default": "./dist/moment-french-locale.mjs"
   },
-  "types": "./dist/moment-french-locale.d.ts",
   "description": "Provides moment.js with French locale",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/joanfabregat/moment-french-locale.git"
+    "url": "git+https://github.com/joanfabregat/moment-french-locale.git"
   },
   "dependencies": {
     "moment": "^2"
@@ -34,7 +36,9 @@
     "typescript": "^5.4.5"
   },
   "tsup": {
-    "entry": ["src/index.ts"],
+    "entry": [
+      "src/index.ts"
+    ],
     "splitting": false,
     "sourcemap": true,
     "clean": true
