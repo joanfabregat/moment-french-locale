@@ -5,7 +5,7 @@ Provides French locale for [Moment.js](https://momentjs.com/). This package is b
 
 ## Installation
 
-This package is available on [npm](https://www.npmjs.com/). You can install it using the following command:
+This package is available on [npm](https://www.npmjs.com/package/moment-french-locale). You can install it using the following command:
 
 ```sh
 npm i moment-french-locale
