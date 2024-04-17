@@ -1,6 +1,7 @@
 {
   "name": "moment-fench-locale",
   "version": "1.0.0",
+  "main": "dist/FrenchLocale.js",
   "description": "Provides moment.js with French locale",
   "dependencies": {
     "moment": "^2.30.1"
