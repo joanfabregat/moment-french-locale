@@ -1,6 +1,6 @@
 {
   "name": "moment-french-locale",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "publishConfig": {
     "access": "public"
   },
@@ -11,7 +11,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/joanfabregat/moment-french-locale.git"
+    "url": "https://github.com/joanfabregat/moment-french-locale.git"
   },
   "dependencies": {
     "moment": "^2"
