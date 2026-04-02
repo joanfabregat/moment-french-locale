@@ -1,11 +1,12 @@
 {
   "compilerOptions": {
-    "moduleResolution": "Node",
+    "ignoreDeprecations": "6.0",
+    "moduleResolution": "bundler",
     "noImplicitAny": false,
     "noEmitOnError": true,
     "removeComments": false,
     "sourceMap": true,
-    "target": "es5",
+    "target": "es2020",
     "outDir": "dist"
   },
   "include": [

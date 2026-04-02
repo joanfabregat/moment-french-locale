@@ -1,6 +1,6 @@
 {
   "name": "moment-french-locale",
-  "version": "1.2.5",
+  "version": "1.3.0",
   "publishConfig": {
     "access": "public"
   },
@@ -11,9 +11,7 @@
   "exports": {
     "types": "./dist/moment-french-locale.d.ts",
     "import": "./dist/moment-french-locale.mjs",
-    "require": "./dist/moment-french-locale.js",
-    "module": "./dist/moment-french-locale.mjs",
-    "default": "./dist/moment-french-locale.mjs"
+    "require": "./dist/moment-french-locale.js"
   },
   "description": "Provides moment.js with French locale",
   "license": "MIT",
@@ -32,15 +30,7 @@
     "build": "tsup"
   },
   "devDependencies": {
-    "tsup": "^8.0.2",
-    "typescript": "^5.4.5"
-  },
-  "tsup": {
-    "entry": [
-      "src/index.ts"
-    ],
-    "splitting": false,
-    "sourcemap": true,
-    "clean": true
+    "tsup": "^8.5.1",
+    "typescript": "^6.0.2"
   }
 }
