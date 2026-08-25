@@ -6,7 +6,7 @@
  * https://opensource.org/licenses/MIT.
  */
 
-import {LocaleSpecification} from "moment/moment";
+import type {LocaleSpecification} from "moment/moment";
 
 /**
  * French locale for moment.js

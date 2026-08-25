@@ -1,6 +1,6 @@
 {
   "name": "moment-french-locale",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "publishConfig": {
     "access": "public"
   },
@@ -27,10 +27,13 @@
     "email": "joan@codeinc.co"
   },
   "scripts": {
-    "build": "tsup"
+    "build": "npm run clean && npm run build:js && npm run build:types",
+    "build:js": "esbuild src/moment-french-locale.ts --format=cjs --platform=node --target=es2020 --outfile=dist/moment-french-locale.js --sourcemap && esbuild src/moment-french-locale.ts --format=esm --platform=node --target=es2020 --outfile=dist/moment-french-locale.mjs --sourcemap",
+    "build:types": "tsc --emitDeclarationOnly --declaration",
+    "clean": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\""
   },
   "devDependencies": {
-    "tsup": "^8.5.1",
+    "esbuild": "^0.28.2",
     "typescript": "^6.0.2"
   }
 }
