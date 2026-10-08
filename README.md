@@ -91,7 +91,7 @@ npm ci
 npm test
 ```
 
-`npm test` builds the CommonJS, ESM, source-map, and TypeScript declaration outputs before running the tests with Node.js’s built-in test runner. The tests cover locale behavior and install a packed tarball into a temporary consumer project to verify package contents, ESM and CommonJS imports, and TypeScript declarations. The consumer installation runs offline using npm's cache populated by `npm ci`.
+`npm test` builds the CommonJS, ESM, source-map, and TypeScript declaration outputs before running the tests with Node.js’s built-in test runner. The tests cover locale behavior and install a packed tarball into a temporary consumer project to verify package contents, ESM and CommonJS imports, and TypeScript declarations. The consumer installation runs offline with an empty cache, using a locally packed copy of the installed Moment dependency.
 
 To build without running tests:
 

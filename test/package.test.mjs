@@ -12,12 +12,18 @@ function run(command, args, cwd) {
     return execFileSync(command, args, {cwd, encoding: "utf8", timeout: 60_000});
 }
 
+function pack(directory, destination) {
+    const result = JSON.parse(run("npm", [
+        "pack", "--json", "--ignore-scripts", "--pack-destination", destination,
+    ], directory));
+    // npm 11 returns an array; npm 12 keys the result by package name.
+    return Array.isArray(result) ? result[0] : Object.values(result)[0];
+}
+
 test("installs the published package and supports JavaScript and TypeScript consumers", async () => {
     const temporaryRoot = await mkdtemp(join(tmpdir(), "moment-french-locale-"));
     try {
-        const [packed] = JSON.parse(run("npm", [
-            "pack", "--json", "--ignore-scripts", "--pack-destination", temporaryRoot,
-        ], projectRoot));
+        const packed = pack(projectRoot, temporaryRoot);
         const files = packed.files.map(({path}) => path);
         for (const path of files) {
             assert.ok(
@@ -28,10 +34,13 @@ test("installs the published package and supports JavaScript and TypeScript cons
         }
 
         const consumer = join(temporaryRoot, "consumer");
+        const packedMoment = pack(join(projectRoot, "node_modules/moment"), temporaryRoot);
         await mkdir(consumer);
         await writeFile(join(consumer, "package.json"), JSON.stringify({name: "locale-consumer", private: true}));
         run("npm", [
             "install", "--offline", "--ignore-scripts", "--no-audit", "--no-fund",
+            "--cache", join(temporaryRoot, "empty-cache"),
+            join(temporaryRoot, packedMoment.filename),
             join(temporaryRoot, packed.filename),
         ], consumer);
 
