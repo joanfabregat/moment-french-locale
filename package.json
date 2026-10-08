@@ -1,6 +1,6 @@
 {
   "name": "moment-french-locale",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "publishConfig": {
     "access": "public"
   },
@@ -20,7 +20,7 @@
     "url": "git+https://github.com/joanfabregat/moment-french-locale.git"
   },
   "dependencies": {
-    "moment": "^2"
+    "moment": "^2.31.0"
   },
   "author": {
     "name": "Joan Fabrégat",
