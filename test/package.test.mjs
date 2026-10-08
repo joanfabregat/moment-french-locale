@@ -28,10 +28,15 @@ test("installs the published package and supports JavaScript and TypeScript cons
         }
 
         const consumer = join(temporaryRoot, "consumer");
+        const [packedMoment] = JSON.parse(run("npm", [
+            "pack", "--json", "--ignore-scripts", "--pack-destination", temporaryRoot,
+        ], join(projectRoot, "node_modules/moment")));
         await mkdir(consumer);
         await writeFile(join(consumer, "package.json"), JSON.stringify({name: "locale-consumer", private: true}));
         run("npm", [
             "install", "--offline", "--ignore-scripts", "--no-audit", "--no-fund",
+            "--cache", join(temporaryRoot, "empty-cache"),
+            join(temporaryRoot, packedMoment.filename),
             join(temporaryRoot, packed.filename),
         ], consumer);
 
