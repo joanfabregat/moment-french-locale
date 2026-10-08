@@ -2,7 +2,7 @@
   "compilerOptions": {
     "ignoreDeprecations": "6.0",
     "moduleResolution": "bundler",
-    "noImplicitAny": false,
+    "strict": true,
     "noEmitOnError": true,
     "removeComments": false,
     "rootDir": "src",

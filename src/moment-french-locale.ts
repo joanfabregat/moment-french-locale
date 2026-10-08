@@ -2,7 +2,7 @@
  * Copyright 2026 Code Inc. <https://www.codeinc.co>
  *
  * Use of this source code is governed by an MIT-style
- * license that can be found in the LICENSE file or at
+ * license that can be found in the LICENCE file or at
  * https://opensource.org/licenses/MIT.
  */
 
@@ -62,11 +62,6 @@ const MomentFrenchLocale: LocaleSpecification = {
     isPM: function (input: string): boolean {
         return input.charAt(0) === 'M';
     },
-// In case the meridiem units are not separated around 12, then implement
-// this function (look at locale/id.js for an example).
-// meridiemHour : function (hour, meridiem) {
-//     return /* 0-23 hour, given meridiem token and hour 1-12 */ ;
-// },
     meridiem: function (hours: number, minutes: number, isLower: boolean) {
         return hours < 12 ? 'PD' : 'MD';
     },
